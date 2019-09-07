@@ -3,6 +3,7 @@ defmodule ElixirDesktopApplicationWeb.FileBrowserLive do
 
   def render(assigns) do
     ~L"""
+    <h4 phx-click="quit">quit</h4>
     <h3><%= @current %></h3>
     <ul>
       <li phx-click="cd" phx-value=".."><b>..</b></li>
@@ -23,6 +24,10 @@ defmodule ElixirDesktopApplicationWeb.FileBrowserLive do
       |> ls()
 
     {:ok, socket}
+  end
+
+  def handle_event("quit", _param, _socket) do
+    System.halt(0)
   end
 
   def handle_event("cd", param, socket) do
