@@ -9,9 +9,10 @@ defmodule ElixirDesktopApplication.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      ElixirDesktopApplicationWeb.Endpoint
+      ElixirDesktopApplicationWeb.Endpoint,
       # Starts a worker by calling: ElixirDesktopApplication.Worker.start_link(arg)
       # {ElixirDesktopApplication.Worker, arg},
+      {WebengineKiosk, {[homepage: "http://localhost:4000", fullscreen: false], name: MyKiosk}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

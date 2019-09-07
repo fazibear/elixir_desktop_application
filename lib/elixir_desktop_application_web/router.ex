@@ -17,7 +17,7 @@ defmodule ElixirDesktopApplicationWeb.Router do
   scope "/", ElixirDesktopApplicationWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", FileBrowserLive
   end
 
   # Other scopes may use custom stacks.
